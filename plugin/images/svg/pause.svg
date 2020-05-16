@@ -1,0 +1,11 @@
+<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="pause" role="img"
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-pause fa-w-14 fa-9x">
+  <g class="fa-group">
+    <path fill="currentColor"
+      d="M144 31H48A48 48 0 0 0 0 79v352a48 48 0 0 0 48 48h96a48 48 0 0 0 48-48V79a48 48 0 0 0-48-48zm-16 368a16 16 0 0 1-16 16H80a16 16 0 0 1-16-16V111a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16zM400 31h-96a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h96a48 48 0 0 0 48-48V79a48 48 0 0 0-48-48zm-16 368a16 16 0 0 1-16 16h-32a16 16 0 0 1-16-16V111a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16z"
+      class="fa-secondary"  style="opacity:0.6"></path>
+    <path fill="currentColor"
+      d="M112 95H80a16 16 0 0 0-16 16v288a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V111a16 16 0 0 0-16-16zm256 0h-32a16 16 0 0 0-16 16v288a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V111a16 16 0 0 0-16-16z"
+      class="fa-primary"></path>
+  </g>
+</svg>

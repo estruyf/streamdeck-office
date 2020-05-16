@@ -1,0 +1,12 @@
+{
+  "Description": "Control my office.", 
+  "Name": "Office", 
+  "com.estruyf.office.spotify.play": {
+    "Name": "Spotify Play", 
+    "Tooltip": ""
+  },
+  "com.estruyf.office.spotify.next": {
+    "Name": "Spotify Next", 
+    "Tooltip": ""
+  }
+}

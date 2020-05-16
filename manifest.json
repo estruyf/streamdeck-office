@@ -1,0 +1,50 @@
+{
+  "Actions": [
+    {
+      "Icon": "actionIcon", 
+      "Name": "Spotify Play", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/play",
+          "Name": "On"
+        },
+        {
+          "Image": "plugin/images/icons/pause",
+          "Name": "Off"
+        }
+      ],
+      "Tooltip": "Spotify Play", 
+      "UUID": "com.estruyf.office.spotify.play"
+    }, {
+      "Icon": "actionIcon", 
+      "Name": "Spotify Next", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/next"
+        }
+      ],
+      "Tooltip": "Spotify Next", 
+      "UUID": "com.estruyf.office.spotify.next"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Elio Struyf",
+  "CodePath": "plugin/index.html", 
+  "Description": "Control my office.", 
+  "Name": "Office",
+  "Icon": "plugin/images/icons/plugin",
+  "Category": "Office",
+  "CategoryIcon": "plugin/images/actions/office",
+  "URL": "https://www.elgato.com/gaming/stream-deck", 
+  "Version": "0.0.1",
+  "OS": [
+    {
+      "Platform": "mac", 
+      "MinimumVersion" : "10.11"
+    }
+  ],
+  "Software": 
+  {
+    "MinimumVersion" : "4.2"
+  }
+}

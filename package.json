@@ -1,0 +1,25 @@
+{
+  "name": "com.estruyf.office",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm -rf ./plugin/dist && webpack -w",
+    "build": "rm -rf ./plugin/dist && webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/ws": "7.2.4",
+    "ts-loader": "7.0.4",
+    "typescript": "3.9.2",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.11",
+    "ws": "^7.3.0"
+  },
+  "dependencies": {
+    "@types/node": "^14.0.1",
+    "spotify-node-applescript": "1.1.1"
+  }
+}
