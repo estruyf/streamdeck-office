@@ -70,6 +70,56 @@
       ],
       "Tooltip": "micro", 
       "UUID": "com.estruyf.office.micro"
+    }, {
+      "Name": "Key Light - Power", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/toggle-on",
+          "Name": "On"
+        },
+        {
+          "Image": "plugin/images/icons/toggle-off",
+          "Name": "Off"
+        }
+      ],
+      "Tooltip": "Key Light - Power", 
+      "UUID": "com.estruyf.office.keylight.power"
+    }, {
+      "Name": "Key Light - Temperature up", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/temp-up"
+        }
+      ],
+      "Tooltip": "Key Light - Temperature", 
+      "UUID": "com.estruyf.office.keylight.temperature.up"
+    }, {
+      "Name": "Key Light - Temperature down", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/temp-down"
+        }
+      ],
+      "Tooltip": "Key Light - Temperature", 
+      "UUID": "com.estruyf.office.keylight.temperature.down"
+    }, {
+      "Name": "Key Light - Brightness up", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/brightness-up"
+        }
+      ],
+      "Tooltip": "Key Light - Brightness", 
+      "UUID": "com.estruyf.office.keylight.brightness.up"
+    }, {
+      "Name": "Key Light - Brightness down", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/brightness-down"
+        }
+      ],
+      "Tooltip": "Key Light - Brightness", 
+      "UUID": "com.estruyf.office.keylight.brightness.down"
     }
   ],
   "SDKVersion": 2,
