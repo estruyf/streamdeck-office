@@ -1,29 +1,15 @@
-http://keylight---right.local.:9123/elgato/lights
-http://keylight---left.local.:9123/elgato/lights
+# Stream Desk Office Plugin
 
-http://keylight---right.local.:9123/elgato/lights/settings
+https://developer.elgato.com/documentation/stream-deck/sdk/exporting-your-plugin/
 
-{
-	"numberOfLights": 1,
-	"lights": [{
-		"on": 0,
-		"brightness": 10,
-		"temperature": 250
-	}]
-}
+```
+./DistributionTool -b -i com.estruyf.office.sdPlugin -o ./
+```
 
+## Testing
 
+http://localhost:23654/
 
-PUT
+## Port
 
-{"lights":[{"brightness":10,"temperature":250,"on":0}],"numberOfLights":1}
-{"lights":[{"brightness":10,"temperature":286,"on":1}],"numberOfLights":1}
-{"lights":[{"brightness":10,"temperature":250,"on":1}],"numberOfLights":1}
-
-
-{"lights":[{"brightness":10,"temperature":344,"on":1}],"numberOfLights":1}
-
-{"lights":[{"brightness":3,"temperature":143,"on":1}],"numberOfLights":1}
-
-Temp: 143 - 344
-Brightness: 3 - 100
+28196

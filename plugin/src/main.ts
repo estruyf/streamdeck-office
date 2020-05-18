@@ -29,8 +29,6 @@ export const CONFIG = {
   }
 };
 
-// Test: http://localhost:23654/
-
 // Global cache
 let cache = {};
 // Global settings
@@ -67,7 +65,7 @@ let globalSettings = {};
     const btnInfo: BtnEvent = JSON.parse(evt.data);
 
     if (btnInfo.action === SPOTIFY_PLAY) {
-      SpotifyBtn.pushPlay(ws, btnInfo);
+      SpotifyBtn.pushPlay(ws, btnInfo, inPort);
     } else if (btnInfo.action === SPOTIFY_NEXT) {
       SpotifyBtn.pushNext(btnInfo);
     } else if (btnInfo.action === SOUND_VOLUME) {

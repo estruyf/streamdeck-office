@@ -11,9 +11,9 @@ const STATES = {
 
 export class SpotifyBtn {
     
-  public static pushPlay(ws: WebSocket, btnInfo: BtnEvent) {
+  public static pushPlay(ws: WebSocket, btnInfo: BtnEvent, port: string) {
     if (btnInfo.event === "willAppear") {
-      this.getInitialState(ws, btnInfo);
+      this.getInitialState(ws, btnInfo, port);
     } else if (btnInfo.event === "keyDown" && btnInfo.payload.state === STATES.paused) {
       // Start playing
       this.play();
@@ -33,7 +33,7 @@ export class SpotifyBtn {
     }
   }
 
-  private static async getInitialState(ws: WebSocket, btnInfo: BtnEvent) {
+  private static async getInitialState(ws: WebSocket, btnInfo: BtnEvent, port: string) {
     try {
       let btnState = {
         event: "setState",

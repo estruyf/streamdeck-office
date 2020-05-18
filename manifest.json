@@ -71,6 +71,7 @@
       "Tooltip": "micro", 
       "UUID": "com.estruyf.office.micro"
     }, {
+      "Icon": "plugin/images/icons/plugin",
       "Name": "Key Light - Power", 
       "States": [
         {
@@ -85,6 +86,7 @@
       "Tooltip": "Key Light - Power", 
       "UUID": "com.estruyf.office.keylight.power"
     }, {
+      "Icon": "plugin/images/icons/plugin",
       "Name": "Key Light - Temperature up", 
       "States": [
         {
@@ -94,6 +96,7 @@
       "Tooltip": "Key Light - Temperature", 
       "UUID": "com.estruyf.office.keylight.temperature.up"
     }, {
+      "Icon": "plugin/images/icons/plugin",
       "Name": "Key Light - Temperature down", 
       "States": [
         {
@@ -103,6 +106,7 @@
       "Tooltip": "Key Light - Temperature", 
       "UUID": "com.estruyf.office.keylight.temperature.down"
     }, {
+      "Icon": "plugin/images/icons/plugin",
       "Name": "Key Light - Brightness up", 
       "States": [
         {
@@ -112,6 +116,7 @@
       "Tooltip": "Key Light - Brightness", 
       "UUID": "com.estruyf.office.keylight.brightness.up"
     }, {
+      "Icon": "plugin/images/icons/plugin",
       "Name": "Key Light - Brightness down", 
       "States": [
         {
