@@ -6,7 +6,7 @@ export interface BtnEvent {
   action: string;
   context: string;
   device: string;
-  event: "keyDown" | "keyUp" | "willAppear" | "titleParametersDidChange";
+  event: "keyDown" | "keyUp" | "willAppear" | "willDisappear" | "titleParametersDidChange";
   payload: Payload;
 }
 

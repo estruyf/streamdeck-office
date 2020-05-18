@@ -1,8 +1,8 @@
 {
   "Actions": [
     {
-      "Icon": "actionIcon", 
-      "Name": "Spotify Play", 
+      "Icon": "plugin/images/actions/play", 
+      "Name": "Spotify Play",
       "States": [
         {
           "Image": "plugin/images/icons/play",
@@ -16,7 +16,7 @@
       "Tooltip": "Spotify Play", 
       "UUID": "com.estruyf.office.spotify.play"
     }, {
-      "Icon": "actionIcon", 
+      "Icon": "plugin/images/actions/next", 
       "Name": "Spotify Next", 
       "States": [
         {
@@ -25,6 +25,51 @@
       ],
       "Tooltip": "Spotify Next", 
       "UUID": "com.estruyf.office.spotify.next"
+    }, {
+      "Icon": "plugin/images/actions/switch", 
+      "Name": "Lifx switch", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/switch-on",
+          "Name": "On"
+        },
+        {
+          "Image": "plugin/images/icons/switch-off",
+          "Name": "Off"
+        }
+      ],
+      "Tooltip": "Lifx switch", 
+      "UUID": "com.estruyf.office.lifx.switch"
+    }, {
+      "Icon": "plugin/images/actions/sound", 
+      "Name": "Sound", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/sound-on",
+          "Name": "On"
+        },
+        {
+          "Image": "plugin/images/icons/sound-off",
+          "Name": "Off"
+        }
+      ],
+      "Tooltip": "Sound", 
+      "UUID": "com.estruyf.office.sound"
+    }, {
+      "Icon": "plugin/images/actions/micro", 
+      "Name": "Micro", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/micro-on",
+          "Name": "On"
+        },
+        {
+          "Image": "plugin/images/icons/micro-off",
+          "Name": "Off"
+        }
+      ],
+      "Tooltip": "micro", 
+      "UUID": "com.estruyf.office.micro"
     }
   ],
   "SDKVersion": 2,

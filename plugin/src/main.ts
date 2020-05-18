@@ -1,5 +1,32 @@
 // import spotify from 'spotify-node-applescript';
 import { BtnEvent, MessageEvent } from "./models/BtnEvent";
+import { SpotifyBtn, SPOTIFY_PLAY, SPOTIFY_NEXT } from "./actions/SpotifyBtn";
+import { SOUND_VOLUME, SoundBtn, SOUND_MICRO } from "./actions/SoundBtn";
+import { LIFX_TOGGLE, LifxBtn } from "./actions/LifxBtn";
+
+export const CONFIG = {
+  api: `http://0.0.0.0:2668`,
+  spotify: {
+    status: `/api/spotify/status`,
+    play: `/api/spotify/play`,
+    pause: `/api/spotify/pause`,
+    next: `/api/spotify/next`
+  },
+  sound: {
+    microphone: {
+      status: `/api/sound/micro/status`,
+      toggle: `/api/sound/micro/toggle`
+    },
+    volume: {
+      status: `/api/sound/volume/status`,
+      toggle: `/api/sound/volume/toggle`
+    }
+  },
+  lifx: {
+    status: `http://192.168.1.98:1338/state`,
+    toggle: `http://192.168.1.98:1338/toggle`
+  }
+};
 
 // Test: http://localhost:23654/
 
@@ -38,14 +65,16 @@ let globalSettings = {};
   ws.onmessage = async (evt: MessageEvent) => {
     const btnInfo: BtnEvent = JSON.parse(evt.data);
 
-    if (btnInfo.action === "com.estruyf.office.spotify.play") {
-      if (btnInfo.event === "keyDown" && btnInfo.payload.state === 0) {
-        // Start playing
-        console.log(inPort, inPluginUUID, inRegisterEvent, inInfo)
-        // spotify.play();
-      } else {
-        // Stop playing
-      }
+    if (btnInfo.action === SPOTIFY_PLAY) {
+      SpotifyBtn.pushPlay(ws, btnInfo);
+    } else if (btnInfo.action === SPOTIFY_NEXT) {
+      SpotifyBtn.pushNext(btnInfo);
+    } else if (btnInfo.action === SOUND_VOLUME) {
+      SoundBtn.pushVolume(ws, btnInfo);
+    } else if (btnInfo.action === SOUND_MICRO) {
+      SoundBtn.pushMicro(ws, btnInfo);
+    } else if (btnInfo.action === LIFX_TOGGLE) {
+      LifxBtn.pushToggle(ws, btnInfo);
     }
     
   };
