@@ -3,7 +3,7 @@ import { BtnEvent, MessageEvent } from "./models/BtnEvent";
 import { SpotifyBtn, SPOTIFY_PLAY, SPOTIFY_NEXT } from "./actions/SpotifyBtn";
 import { SOUND_VOLUME, SoundBtn, SOUND_MICRO } from "./actions/SoundBtn";
 import { LIFX_TOGGLE, LifxBtn } from "./actions/LifxBtn";
-import { KEYLIGHT_POWER, KeyLightsBtn, KEYLIGHT_TEMP_UP, KEYLIGHT_TEMP_DOWN, KEYLIGHT_BRIGHT_UP, KEYLIGHT_BRIGHT_DOWN } from "./actions/KeyLightsBtn";
+import { KEYLIGHT_POWER, KeyLightsBtn, KEYLIGHT_TEMP_UP, KEYLIGHT_TEMP_DOWN, KEYLIGHT_BRIGHT_UP, KEYLIGHT_BRIGHT_DOWN, KEYLIGHT_STATUS } from "./actions/KeyLightsBtn";
 
 export const CONFIG = {
   api: `http://0.0.0.0:2668`,
@@ -41,6 +41,7 @@ let globalSettings = {};
   // const spotify = new Spotify();
 
   // Open the web socket to Stream Deck
+  let playWs = new WebSocket("ws://127.0.0.1:2669");
   let ws = new WebSocket("ws://127.0.0.1:" + inPort);
 
   function registerPlugin() {
@@ -65,7 +66,7 @@ let globalSettings = {};
     const btnInfo: BtnEvent = JSON.parse(evt.data);
 
     if (btnInfo.action === SPOTIFY_PLAY) {
-      SpotifyBtn.pushPlay(ws, btnInfo, inPort);
+      SpotifyBtn.pushPlay(ws, playWs, btnInfo, inPort);
     } else if (btnInfo.action === SPOTIFY_NEXT) {
       SpotifyBtn.pushNext(btnInfo);
     } else if (btnInfo.action === SOUND_VOLUME) {
@@ -84,6 +85,8 @@ let globalSettings = {};
       KeyLightsBtn.pushBrightUp(ws, btnInfo);
     } else if (btnInfo.action === KEYLIGHT_BRIGHT_DOWN) {
       KeyLightsBtn.pushBrightDown(ws, btnInfo);
+    } else if (btnInfo.action === KEYLIGHT_STATUS) {
+      KeyLightsBtn.initStatus(ws, btnInfo);
     }
     
   };

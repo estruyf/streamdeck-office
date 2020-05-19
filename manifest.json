@@ -125,6 +125,16 @@
       ],
       "Tooltip": "Key Light - Brightness", 
       "UUID": "com.estruyf.office.keylight.brightness.down"
+    }, {
+      "Icon": "plugin/images/icons/plugin",
+      "Name": "Key Light - Details", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/sound"
+        }
+      ],
+      "Tooltip": "Key Light - Brightness", 
+      "UUID": "com.estruyf.office.keylight.status"
     }
   ],
   "SDKVersion": 2,

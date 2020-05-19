@@ -5,22 +5,22 @@ export const SPOTIFY_PLAY = "com.estruyf.office.spotify.play";
 export const SPOTIFY_NEXT = "com.estruyf.office.spotify.next";
 
 const STATES = {
-  playing: 0,
-  paused: 1
+  on: 0,
+  off: 1
 };
 
 export class SpotifyBtn {
     
-  public static pushPlay(ws: WebSocket, btnInfo: BtnEvent, port: string) {
+  public static pushPlay(ws: WebSocket, playWs: WebSocket, btnInfo: BtnEvent, port: string) {
     if (btnInfo.event === "willAppear") {
-      this.getInitialState(ws, btnInfo, port);
-    } else if (btnInfo.event === "keyDown" && btnInfo.payload.state === STATES.paused) {
+      this.getInitialState(ws, playWs, btnInfo, port);
+    } else if (btnInfo.event === "keyDown" && btnInfo.payload.state === STATES.off) {
       // Start playing
       this.play();
-    } else if (btnInfo.event  === "keyDown" && btnInfo.payload.state === STATES.playing) {
+    } else if (btnInfo.event  === "keyDown" && btnInfo.payload.state === STATES.on) {
       // Stop playing
       this.pause();
-    } else if (btnInfo.event  === "keyDown" && btnInfo.payload.state === STATES.playing) {
+    } else if (btnInfo.event  === "keyDown" && btnInfo.payload.state === STATES.off) {
       // Stop playing
       this.pause();
     }
@@ -33,26 +33,37 @@ export class SpotifyBtn {
     }
   }
 
-  private static async getInitialState(ws: WebSocket, btnInfo: BtnEvent, port: string) {
+  private static async getInitialState(ws: WebSocket, playWs: WebSocket, btnInfo: BtnEvent, port: string) {
     try {
       let btnState = {
         event: "setState",
         context: btnInfo.context,
         payload: {
-          state: STATES.paused
+          state: STATES.off
         }
       };
 
       const data = await fetch(`${CONFIG.api}${CONFIG.spotify.status}`);
+
       if (data && data.ok) {
         const status = await data.json();
         if (status && status.state && status.state === "playing") {
-          btnState.payload.state = STATES.playing
+          btnState.payload.state = STATES.on
         }
       }
 
       if (ws) {
         ws.send(JSON.stringify(btnState));
+      }
+
+      if (playWs) {
+        playWs.addEventListener('message', (event) => {
+          if (event && event.data) {
+            const stateInfo = JSON.parse(event.data);
+            btnState.payload.state = stateInfo.state;
+            ws.send(JSON.stringify(btnState));
+          }
+        });
       }
     } catch {
 
