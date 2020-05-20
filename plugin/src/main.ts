@@ -1,9 +1,10 @@
 // import spotify from 'spotify-node-applescript';
 import { BtnEvent, MessageEvent } from "./models/BtnEvent";
 import { SpotifyBtn, SPOTIFY_PLAY, SPOTIFY_NEXT } from "./actions/SpotifyBtn";
-import { SOUND_VOLUME, SoundBtn, SOUND_MICRO } from "./actions/SoundBtn";
+import { SOUND_VOLUME, SoundBtn, SOUND_MICRO, SOUND_VOLUME_UP, SOUND_VOLUME_DOWN } from "./actions/SoundBtn";
 import { LIFX_TOGGLE, LifxBtn } from "./actions/LifxBtn";
 import { KEYLIGHT_POWER, KeyLightsBtn, KEYLIGHT_TEMP_UP, KEYLIGHT_TEMP_DOWN, KEYLIGHT_BRIGHT_UP, KEYLIGHT_BRIGHT_DOWN, KEYLIGHT_STATUS } from "./actions/KeyLightsBtn";
+import { MSTEAMS_WEBCAM, MSTeamsBtn } from "./actions/MSTeamsBtn";
 
 export const CONFIG = {
   api: `http://0.0.0.0:2668`,
@@ -20,12 +21,18 @@ export const CONFIG = {
     },
     volume: {
       status: `/api/sound/volume/status`,
-      toggle: `/api/sound/volume/toggle`
+      toggle: `/api/sound/volume/toggle`,
+      up: `/api/sound/volume/up`,
+      down: `/api/sound/volume/down`
     }
   },
   lifx: {
     status: `http://192.168.1.98:1338/state`,
     toggle: `http://192.168.1.98:1338/toggle`
+  },
+  msteams: {
+    camera: `/api/msteams/camera/toggle`,
+    micro: `/api/msteams/micro/toggle`
   }
 };
 
@@ -71,6 +78,10 @@ let globalSettings = {};
       SpotifyBtn.pushNext(btnInfo);
     } else if (btnInfo.action === SOUND_VOLUME) {
       SoundBtn.pushVolume(ws, btnInfo);
+    } else if (btnInfo.action === SOUND_VOLUME_UP) {
+      SoundBtn.pushVolumeUp(ws, btnInfo);
+    } else if (btnInfo.action === SOUND_VOLUME_DOWN) {
+      SoundBtn.pushVolumeDown(ws, btnInfo);
     } else if (btnInfo.action === SOUND_MICRO) {
       SoundBtn.pushMicro(ws, btnInfo);
     } else if (btnInfo.action === LIFX_TOGGLE) {
@@ -87,6 +98,8 @@ let globalSettings = {};
       KeyLightsBtn.pushBrightDown(ws, btnInfo);
     } else if (btnInfo.action === KEYLIGHT_STATUS) {
       KeyLightsBtn.initStatus(ws, btnInfo);
+    } else if (btnInfo.action === MSTEAMS_WEBCAM) {
+      MSTeamsBtn.pushWebcam(ws, btnInfo);
     }
     
   };

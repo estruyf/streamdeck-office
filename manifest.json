@@ -42,19 +42,34 @@
       "UUID": "com.estruyf.office.lifx.switch"
     }, {
       "Icon": "plugin/images/actions/sound", 
-      "Name": "Sound", 
+      "Name": "Volume", 
       "States": [
         {
-          "Image": "plugin/images/icons/sound-on",
-          "Name": "On"
-        },
-        {
-          "Image": "plugin/images/icons/sound-off",
-          "Name": "Off"
+          "Image": "plugin/images/icons/sound-on"
         }
       ],
-      "Tooltip": "Sound", 
+      "Tooltip": "Volume", 
       "UUID": "com.estruyf.office.sound"
+    }, {
+      "Icon": "plugin/images/actions/sound", 
+      "Name": "Volume Up", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/volume-up"
+        }
+      ],
+      "Tooltip": "Volume Up", 
+      "UUID": "com.estruyf.office.sound.up"
+    }, {
+      "Icon": "plugin/images/actions/sound", 
+      "Name": "Volume Down", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/volume-down"
+        }
+      ],
+      "Tooltip": "Volume Down", 
+      "UUID": "com.estruyf.office.sound.down"
     }, {
       "Icon": "plugin/images/actions/micro", 
       "Name": "Micro", 
@@ -135,6 +150,26 @@
       ],
       "Tooltip": "Key Light - Brightness", 
       "UUID": "com.estruyf.office.keylight.status"
+    }, {
+      "Icon": "plugin/images/icons/plugin",
+      "Name": "MSTeams - Webcam", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/webcam"
+        }
+      ],
+      "Tooltip": "MSTeams - Webcam", 
+      "UUID": "com.estruyf.office.msteams.webcam"
+    }, {
+      "Icon": "plugin/images/icons/plugin",
+      "Name": "MSTeams - Micro", 
+      "States": [
+        {
+          "Image": "plugin/images/icons/msteams-micro"
+        }
+      ],
+      "Tooltip": "MSTeams - Micro", 
+      "UUID": "com.estruyf.office.msteams.micro"
     }
   ],
   "SDKVersion": 2,
