@@ -4,7 +4,7 @@ import { SpotifyBtn, SPOTIFY_PLAY, SPOTIFY_NEXT } from "./actions/SpotifyBtn";
 import { SOUND_VOLUME, SoundBtn, SOUND_MICRO, SOUND_VOLUME_UP, SOUND_VOLUME_DOWN } from "./actions/SoundBtn";
 import { LIFX_TOGGLE, LifxBtn } from "./actions/LifxBtn";
 import { KEYLIGHT_POWER, KeyLightsBtn, KEYLIGHT_TEMP_UP, KEYLIGHT_TEMP_DOWN, KEYLIGHT_BRIGHT_UP, KEYLIGHT_BRIGHT_DOWN, KEYLIGHT_STATUS } from "./actions/KeyLightsBtn";
-import { MSTEAMS_WEBCAM, MSTeamsBtn } from "./actions/MSTeamsBtn";
+import { MSTEAMS_WEBCAM, MSTeamsBtn, MSTEAMS_MICRO } from "./actions/MSTeamsBtn";
 
 export const CONFIG = {
   api: `http://0.0.0.0:2668`,
@@ -31,7 +31,7 @@ export const CONFIG = {
     toggle: `http://192.168.1.98:1338/toggle`
   },
   msteams: {
-    camera: `/api/msteams/camera/toggle`,
+    camera: `/api/msteams/webcam/toggle`,
     micro: `/api/msteams/micro/toggle`
   }
 };
@@ -100,6 +100,8 @@ let globalSettings = {};
       KeyLightsBtn.initStatus(ws, btnInfo);
     } else if (btnInfo.action === MSTEAMS_WEBCAM) {
       MSTeamsBtn.pushWebcam(ws, btnInfo);
+    } else if (btnInfo.action === MSTEAMS_MICRO) {
+      MSTeamsBtn.pushMicro(ws, btnInfo);
     }
     
   };
