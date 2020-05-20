@@ -138,7 +138,6 @@ export class SoundBtn {
     if (this.ctxStatusBtn) {
       // Volume width
       const volumeWidth = 1.8 * status.volume;
-      console.log('setStatusIcon', volumeWidth)
     
       let json = {
         "event": "setImage",
