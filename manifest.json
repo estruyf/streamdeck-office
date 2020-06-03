@@ -5,11 +5,11 @@
       "Name": "Spotify Play",
       "States": [
         {
-          "Image": "plugin/images/icons/play",
+          "Image": "plugin/images/icons/pause",
           "Name": "On"
         },
         {
-          "Image": "plugin/images/icons/pause",
+          "Image": "plugin/images/icons/play",
           "Name": "Off"
         }
       ],
