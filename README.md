@@ -8,7 +8,7 @@ https://developer.elgato.com/documentation/stream-deck/sdk/exporting-your-plugin
 
 ## Location
 
-`/Users/eliostruyf/Library/Application Support/com.elgato.StreamDeck/Plugins`
+`/Users/<user>/Library/Application Support/com.elgato.StreamDeck/Plugins`
 
 ## Testing
 
