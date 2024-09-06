@@ -1,10 +1,28 @@
 // import spotify from 'spotify-node-applescript';
 import { BtnEvent, MessageEvent } from "./models/BtnEvent";
 import { SpotifyBtn, SPOTIFY_PLAY, SPOTIFY_NEXT } from "./actions/SpotifyBtn";
-import { SOUND_VOLUME, SoundBtn, SOUND_MICRO, SOUND_VOLUME_UP, SOUND_VOLUME_DOWN } from "./actions/SoundBtn";
+import {
+  SOUND_VOLUME,
+  SoundBtn,
+  SOUND_MICRO,
+  SOUND_VOLUME_UP,
+  SOUND_VOLUME_DOWN,
+} from "./actions/SoundBtn";
 import { LIFX_TOGGLE, LifxBtn } from "./actions/LifxBtn";
-import { KEYLIGHT_POWER, KeyLightsBtn, KEYLIGHT_TEMP_UP, KEYLIGHT_TEMP_DOWN, KEYLIGHT_BRIGHT_UP, KEYLIGHT_BRIGHT_DOWN, KEYLIGHT_STATUS } from "./actions/KeyLightsBtn";
-import { MSTEAMS_WEBCAM, MSTeamsBtn, MSTEAMS_MICRO } from "./actions/MSTeamsBtn";
+import {
+  KEYLIGHT_POWER,
+  KeyLightsBtn,
+  KEYLIGHT_TEMP_UP,
+  KEYLIGHT_TEMP_DOWN,
+  KEYLIGHT_BRIGHT_UP,
+  KEYLIGHT_BRIGHT_DOWN,
+  KEYLIGHT_STATUS,
+} from "./actions/KeyLightsBtn";
+import {
+  MSTEAMS_WEBCAM,
+  MSTeamsBtn,
+  MSTEAMS_MICRO,
+} from "./actions/MSTeamsBtn";
 
 export const CONFIG = {
   api: `http://0.0.0.0:2668`,
@@ -12,28 +30,28 @@ export const CONFIG = {
     status: `/api/spotify/status`,
     play: `/api/spotify/play`,
     pause: `/api/spotify/pause`,
-    next: `/api/spotify/next`
+    next: `/api/spotify/next`,
   },
   sound: {
     microphone: {
       status: `/api/sound/micro/status`,
-      toggle: `/api/sound/micro/toggle`
+      toggle: `/api/sound/micro/toggle`,
     },
     volume: {
       status: `/api/sound/volume/status`,
       toggle: `/api/sound/volume/toggle`,
       up: `/api/sound/volume/up`,
-      down: `/api/sound/volume/down`
-    }
+      down: `/api/sound/volume/down`,
+    },
   },
   lifx: {
     status: `http://192.168.1.98:1338/state`,
-    toggle: `http://192.168.1.98:1338/toggle`
+    toggle: `http://192.168.1.98:1338/toggle`,
   },
   msteams: {
     camera: `/api/msteams/webcam/toggle`,
-    micro: `/api/msteams/micro/toggle`
-  }
+    micro: `/api/msteams/micro/toggle`,
+  },
 };
 
 // Global cache
@@ -42,7 +60,12 @@ let cache = {};
 let globalSettings = {};
 
 // Setup the websocket and handle communication
-(global as any).connectElgatoStreamDeckSocket = (inPort, inPluginUUID, inRegisterEvent, inInfo) =>{
+(global as any).connectElgatoStreamDeckSocket = (
+  inPort,
+  inPluginUUID,
+  inRegisterEvent,
+  inInfo
+) => {
   // Parse parameter from string to object
   const info = JSON.parse(inInfo);
   // const spotify = new Spotify();
@@ -53,19 +76,19 @@ let globalSettings = {};
 
   function registerPlugin() {
     const json = {
-      "event": inRegisterEvent,
-      "uuid": inPluginUUID
+      event: inRegisterEvent,
+      uuid: inPluginUUID,
     };
 
     ws.send(JSON.stringify(json));
-  };
+  }
 
-  ws.onopen = () => { 
+  ws.onopen = () => {
     // WebSocket is connected, send message
     registerPlugin();
   };
 
-  ws.onclose = () => { 
+  ws.onclose = () => {
     // Websocket is closed
   };
 
@@ -103,6 +126,5 @@ let globalSettings = {};
     } else if (btnInfo.action === MSTEAMS_MICRO) {
       MSTeamsBtn.pushMicro(ws, btnInfo);
     }
-    
   };
-}
+};

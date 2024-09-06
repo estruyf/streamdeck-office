@@ -5,21 +5,20 @@
   "main": "index.js",
   "scripts": {
     "start": "rm -rf ./plugin/dist && webpack -w",
-    "build": "rm -rf ./plugin/dist && webpack"
+    "build": "rm -rf ./plugin/dist && esbuild ./plugin/src/main.ts --bundle --outfile=./plugin/dist/main.js --define:global=window"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^14.0.1",
     "@types/ws": "7.2.4",
+    "esbuild": "0.23.1",
     "ts-loader": "7.0.4",
     "typescript": "3.9.2",
-    "webpack": "4.43.0",
-    "webpack-cli": "3.3.11",
-    "ws": "^7.3.0"
+    "ws": "^8.18.0"
   },
   "dependencies": {
-    "@types/node": "^14.0.1",
-    "spotify-node-applescript": "1.1.1"
+    "spotify-node-applescript": "^1.1.1"
   }
 }
